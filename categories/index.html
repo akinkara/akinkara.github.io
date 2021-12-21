@@ -18,6 +18,24 @@
 <link rel="mask-icon" href="https://akinkara.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+
+<link rel="manifest" href="/manifest.json">
+
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('Service Worker Registered');
+            }, err => console.error("Service Worker registration failed: ", err));
+  
+        navigator.serviceWorker
+            .ready
+            .then(function(registration) {
+                console.log('Service Worker Ready');
+            });
+    }
+  </script>
 <meta name="generator" content="Hugo 0.90.1" />
 <link rel="alternate" type="application/rss+xml" href="https://akinkara.github.io/categories/index.xml">
 <noscript>
